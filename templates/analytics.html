@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Analytics — SpendWise{% endblock %}
+{% block page_title %}Analytics{% endblock %}
+{% block page_subtitle %}Understand your spending at a glance.{% endblock %}
+
+{% block content %}
+<div class="row g-3">
+  <div class="col-lg-7">
+    <div class="sw-card p-4 h-100">
+      <h6 class="fw-bold mb-3">Income vs Expenses</h6>
+      <div class="sw-chart-wrap"><canvas id="trendChart"></canvas></div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="sw-card p-4 h-100">
+      <h6 class="fw-bold mb-3">Spending by Category</h6>
+      <div class="sw-chart-wrap"><canvas id="categoryChart"></canvas></div>
+    </div>
+  </div>
+  <div class="col-lg-7">
+    <div class="sw-card p-4 h-100">
+      <h6 class="fw-bold mb-3">Monthly Spending Trend</h6>
+      <div class="sw-chart-wrap sm"><canvas id="monthlyExpenseChart"></canvas></div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="sw-card p-4 h-100">
+      <h6 class="fw-bold mb-3">Savings Progress</h6>
+      <div id="savingsProgressList">
+        <div class="sw-skeleton mb-2" style="height:36px;"></div>
+        <div class="sw-skeleton" style="height:36px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/analytics.js' %}"></script>
+{% endblock %}

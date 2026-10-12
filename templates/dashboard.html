@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Dashboard — SpendWise{% endblock %}
+{% block page_title %}<span id="greeting">Good day 👋</span>{% endblock %}
+{% block page_subtitle %}Here's what's happening with your money.{% endblock %}
+
+{% block topbar_actions %}
+<div class="btn-group" role="group" id="periodFilter">
+  <button class="btn btn-sm sw-btn-outline" data-period="week">Week</button>
+  <button class="btn btn-sm sw-btn-outline active" data-period="month">Month</button>
+  <button class="btn btn-sm sw-btn-outline" data-period="year">Year</button>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row g-3 mb-4" id="statsRow">
+  <div class="col-6 col-lg-3">
+    <div class="sw-card sw-stat-card sw-fade-in">
+      <div class="sw-stat-icon" style="background: var(--sw-primary-light); color: var(--sw-primary-dark);"><i class="bi bi-wallet2"></i></div>
+      <div class="sw-stat-label">Total Balance</div>
+      <div class="sw-stat-value" id="statBalance"><span class="sw-skeleton d-inline-block" style="width:90px;height:22px;"></span></div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="sw-card sw-stat-card sw-fade-in">
+      <div class="sw-stat-icon" style="background: var(--sw-primary-light); color: var(--sw-primary-dark);"><i class="bi bi-arrow-down-circle"></i></div>
+      <div class="sw-stat-label">Total Income</div>
+      <div class="sw-stat-value" id="statIncome"><span class="sw-skeleton d-inline-block" style="width:90px;height:22px;"></span></div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="sw-card sw-stat-card sw-fade-in">
+      <div class="sw-stat-icon" style="background: var(--sw-danger-light); color: var(--sw-danger);"><i class="bi bi-arrow-up-circle"></i></div>
+      <div class="sw-stat-label">Total Expenses</div>
+      <div class="sw-stat-value" id="statExpenses"><span class="sw-skeleton d-inline-block" style="width:90px;height:22px;"></span></div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="sw-card sw-stat-card sw-fade-in">
+      <div class="sw-stat-icon" style="background: var(--sw-warning-light); color: var(--sw-warning);"><i class="bi bi-piggy-bank"></i></div>
+      <div class="sw-stat-label">Total Savings</div>
+      <div class="sw-stat-value" id="statSavings"><span class="sw-skeleton d-inline-block" style="width:90px;height:22px;"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-7">
+    <div class="sw-card p-4 h-100">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h6 class="fw-bold mb-0">Recent Transactions</h6>
+        <a href="{% url 'transactions' %}" class="small sw-gradient-text fw-semibold">View all</a>
+      </div>
+      <div id="recentTransactions">
+        <div class="sw-skeleton mb-2" style="height:48px;"></div>
+        <div class="sw-skeleton mb-2" style="height:48px;"></div>
+        <div class="sw-skeleton" style="height:48px;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="sw-card p-4 h-100">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h6 class="fw-bold mb-0">Quick Add</h6>
+      </div>
+      <form id="quickAddForm">
+        <div class="mb-2">
+          <div class="btn-group w-100" role="group">
+            <input type="radio" class="btn-check" name="transaction_type" id="qaIncome" value="income">
+            <label class="btn sw-btn-outline" for="qaIncome"><i class="bi bi-plus-circle"></i> Income</label>
+            <input type="radio" class="btn-check" name="transaction_type" id="qaExpense" value="expense" checked>
+            <label class="btn sw-btn-outline" for="qaExpense"><i class="bi bi-dash-circle"></i> Expense</label>
+          </div>
+        </div>
+        <div class="mb-2">
+          <input type="text" class="form-control sw-input" name="description" placeholder="Description" required>
+        </div>
+        <div class="row g-2 mb-2">
+          <div class="col-6">
+            <input type="number" step="0.01" min="0.01" class="form-control sw-input" name="amount" placeholder="Amount (₦)" required>
+          </div>
+          <div class="col-6">
+            <input type="date" class="form-control sw-input" name="date" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <select class="form-select sw-input" name="category" id="qaCategory">
+            <option value="">Uncategorized</option>
+          </select>
+        </div>
+        <button type="submit" class="btn sw-btn-primary w-100">Add Transaction</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpendWise — Take control of your money</title>
+<link rel="icon" href="data:,">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sw-landing-navbar py-3">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{% url 'home' %}">
+      <span class="sw-logo-mark d-inline-flex align-items-center justify-content-center" style="width:34px;height:34px;">S</span>
+      SpendWise
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-lg-3 mt-3 mt-lg-0">
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="#contact">Contact</a></li>
+      </ul>
+      <div class="d-flex gap-2 mt-3 mt-lg-0">
+        <a href="{% url 'login' %}" class="btn sw-btn-outline">Login</a>
+        <a href="{% url 'register' %}" class="btn sw-btn-primary">Register</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="sw-hero" id="home">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <span class="sw-badge sw-badge-income mb-3"><i class="bi bi-stars"></i> Personal finance, simplified</span>
+        <h1 class="display-4 mb-3">Take control of <span class="sw-gradient-text">your money.</span></h1>
+        <p class="sw-text-muted fs-5 mb-4">
+          SpendWise helps you track every naira you earn and spend, set realistic budgets,
+          and hit your savings goals — all from one clean, modern dashboard.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="{% url 'register' %}" class="btn sw-btn-primary btn-lg px-4">Get Started <i class="bi bi-arrow-right"></i></a>
+          <a href="{% url 'login' %}" class="btn sw-btn-outline btn-lg px-4">Login</a>
+        </div>
+        <div class="d-flex gap-4 mt-4 flex-wrap">
+          <div><div class="fw-bold fs-5">Free</div><div class="sw-text-muted small">Always</div></div>
+          <div><div class="fw-bold fs-5">₦ NGN</div><div class="sw-text-muted small">Native support</div></div>
+          <div><div class="fw-bold fs-5">Secure</div><div class="sw-text-muted small">Your data stays yours</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="sw-blob-visual">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <div class="opacity-75 small">Total Balance</div>
+              <div class="fs-2 fw-bold">₦245,000.00</div>
+            </div>
+            <i class="bi bi-wallet2 fs-1 opacity-75"></i>
+          </div>
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="bg-white bg-opacity-10 rounded-3 p-3">
+                <div class="small opacity-75"><i class="bi bi-arrow-down-circle"></i> Income</div>
+                <div class="fw-bold fs-5">₦400,000</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="bg-white bg-opacity-10 rounded-3 p-3">
+                <div class="small opacity-75"><i class="bi bi-arrow-up-circle"></i> Expenses</div>
+                <div class="fw-bold fs-5">₦155,000</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <div class="d-flex justify-content-between small opacity-75 mb-1"><span>Savings goal — New Laptop</span><span>70%</span></div>
+            <div class="sw-progress" style="background:rgba(255,255,255,.2);"><div style="width:70%; background:#fff;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="py-5" id="features">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <span class="sw-badge sw-badge-income mb-2">Features</span>
+      <h2 class="fw-bold">Everything you need to manage your money</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="sw-card sw-feature-card">
+          <div class="sw-feature-icon"><i class="bi bi-arrow-left-right"></i></div>
+          <h5 class="fw-bold">Expense Tracking</h5>
+          <p class="sw-text-muted mb-0">Log every expense in seconds and see exactly where your money goes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="sw-card sw-feature-card">
+          <div class="sw-feature-icon"><i class="bi bi-cash-coin"></i></div>
+          <h5 class="fw-bold">Income Management</h5>
+          <p class="sw-text-muted mb-0">Track every income source and keep an accurate picture of your earnings.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="sw-card sw-feature-card">
+          <div class="sw-feature-icon"><i class="bi bi-pie-chart-fill"></i></div>
+          <h5 class="fw-bold">Budget Planning</h5>
+          <p class="sw-text-muted mb-0">Set category budgets and get a clear view of what's left to spend.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="sw-card sw-feature-card">
+          <div class="sw-feature-icon"><i class="bi bi-bar-chart-line-fill"></i></div>
+          <h5 class="fw-bold">Spending Analytics</h5>
+          <p class="sw-text-muted mb-0">Visual charts that turn your transactions into real insight.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="sw-card sw-feature-card">
+          <div class="sw-feature-icon"><i class="bi bi-piggy-bank-fill"></i></div>
+          <h5 class="fw-bold">Savings Goals</h5>
+          <p class="sw-text-muted mb-0">Set a target, track your progress, and watch your savings grow.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="sw-card sw-feature-card">
+          <div class="sw-feature-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+          <h5 class="fw-bold">Financial Overview</h5>
+          <p class="sw-text-muted mb-0">One dashboard for your balance, income, expenses and savings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-body-tertiary" id="about" style="background: var(--sw-surface);">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <span class="sw-badge sw-badge-income mb-2">How it works</span>
+      <h2 class="fw-bold">Get started in three simple steps</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="d-flex gap-3">
+          <div class="sw-step-num">1</div>
+          <div>
+            <h6 class="fw-bold mb-1">Add your income</h6>
+            <p class="sw-text-muted mb-0">Record your salary and other income sources.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="d-flex gap-3">
+          <div class="sw-step-num">2</div>
+          <div>
+            <h6 class="fw-bold mb-1">Track your expenses</h6>
+            <p class="sw-text-muted mb-0">Log expenses by category as they happen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="d-flex gap-3">
+          <div class="sw-step-num">3</div>
+          <div>
+            <h6 class="fw-bold mb-1">Understand your spending</h6>
+            <p class="sw-text-muted mb-0">Use analytics and budgets to make smarter decisions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-5" id="contact">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-md-6">
+        <div class="fw-bold fs-5 mb-2"><span class="sw-gradient-text">SpendWise</span></div>
+        <p class="sw-text-muted mb-0">Personal finance tracking, built with Django REST Framework and vanilla JavaScript.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="sw-text-muted mb-0">Questions? Reach us at <a href="mailto:hello@spendwise.app" class="sw-gradient-text fw-semibold">hello@spendwise.app</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
